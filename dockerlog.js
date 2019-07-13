@@ -1,8 +1,10 @@
 const http = require('http');
+const fs = require('fs');
+let containerCode = process.argv[2]
 
 const options = {
     socketPath: '/var/run/docker.sock',
-    path: 'http:/v1.24/containers/42377cf77289/logs?stdout=1',
+    path: `http:/v1.24/containers/${containerCode}/logs?stdout=1`,
 };
 
 const callback = res => {
